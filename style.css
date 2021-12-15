@@ -3,3 +3,143 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+html {
+    font-family: 'Readex Pro', sans-serif;
+    font-size: 36px;
+    text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #EEE;
+        color: #000;
+    }
+
+    #theme-toggle {
+        border-color: #000;
+    }
+
+    #switch {
+        transform: translateX(2px);
+        transition: transform 300ms ease-in-out;
+    }
+
+    body.other-theme {
+        background-color: #240046;
+        color: #FFF;
+    }
+
+    #theme-toggle.other-theme #switch{
+        transform: translateX(-33px);
+        transition: transform 300ms ease-in-out;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #240046;
+        color: #FFF;
+    }
+
+    #theme-toggle {
+        border-color: #FFF;
+    }
+
+    #switch {
+        transform: translateX(-33px);
+        transition: transform 300ms ease-in-out;
+    }
+
+    body.other-theme {
+        background-color: #EEE;
+        color: #000;
+    }
+
+    #theme-toggle.other-theme {
+        border-color: #000;
+    }
+
+    #theme-toggle.other-theme #switch {
+        transform: translateX(2px);
+        transition: transform 300ms ease-in-out;
+    }
+}
+
+#main {
+    margin: 0 auto;
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 44px 1fr 1fr 1fr;
+    grid-template-areas:
+        "toggle"
+        "instructions"
+        "search"
+        "results";
+    justify-items: center;
+    align-items: center;
+    row-gap: 8px;
+}
+
+#theme-toggle {
+    position: relative;
+    right: -185px;
+    height: 40px;
+    width: 76px;
+    grid-area: toggle;
+    border: 2px solid;
+    border-radius: 24px;
+    padding: 2px;
+}
+
+#switch {
+    position: absolute;
+    top: 2px;
+}
+
+#light-mode-icon {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+
+#dark-mode-icon {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
+#instructions {
+    grid-area: instructions;
+}
+
+#search {
+    grid-area: search;
+    display: flex;
+    column-gap: 8px;
+}
+
+#location-input {
+    text-align: center;
+    padding: 4px;
+    font-size: 28px;
+}
+
+#location-search {
+    cursor: pointer;
+    transition: transform 50ms;
+}
+
+#location-search:hover {
+    transform: scale(1.2, 1.2);
+    transition: transform 50ms ease-in;
+}
+
+#results {
+    grid-area: results;
+}
+
+ul {
+    list-style: none;
+}
